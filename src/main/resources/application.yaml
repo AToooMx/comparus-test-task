@@ -1,3 +1,44 @@
 spring:
   application:
-    name: comparus.test.task
+    name: comparus-test-task
+
+data-sources:
+  - name: db-1
+    strategy: postgresql
+    url: jdbc:postgresql://localhost:5433/db-1
+    username: postgres1
+    password: pass1
+    driver: org.postgresql.Driver
+    table: users
+    enabled: true
+    mapping:
+      id: id
+      username: username
+      name: name
+      surname: surname
+  - name: db-2
+    strategy: postgresql
+    url: jdbc:postgresql://localhost:5434/db-2
+    username: postgres2
+    password: pass2
+    driver: org.postgresql.Driver
+    table: customers
+    enabled: true
+    mapping:
+      id: user_id
+      username: login
+      name: first_name
+      surname: last_name
+  - name: db-3
+    strategy: my_sql
+    url: jdbc:mysql://localhost:3307/db-3
+    username: mysql
+    password: root
+    driver: com.mysql.cj.jdbc.Driver
+    table: tusers
+    enabled: true
+    mapping:
+      id: id
+      username: ldap_login
+      name: name
+      surname: surname
